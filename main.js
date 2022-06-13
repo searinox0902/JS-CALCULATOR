@@ -91,6 +91,7 @@ const calculator = () => {
         }
 
         if(el.dataset.backspace){
+            result = elResult.innerHTML;
             result = result.substring(0, result.length - 1)
             elResult.innerHTML = result;
         }
