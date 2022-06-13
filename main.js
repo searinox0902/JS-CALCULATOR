@@ -82,6 +82,8 @@ const calculator = () => {
 
                     renderResult()
 
+                    result = elResult.innerHTML;
+                    resultHistory = '';
                    
                     break;
 
