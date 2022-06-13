@@ -144,11 +144,11 @@ mainCalculator = () => {
     }
 
     if(operator == 'plus'){
-        calcMultily(result, resultHistory)
+        calcPlus(result, resultHistory)
     }
 
     if(operator == 'minus'){
-        calcMultily(result, resultHistory)
+        calcMinus(result, resultHistory)
     }
 
     
@@ -165,12 +165,12 @@ calcDivider = (r, rh) => {
 }
 
 calcPlus = (r, rh) => {
-    result = rh + r;
+    result = Number(rh) + Number(r);
     resultHistory = '';     
 }
 
 calcMinus = (r, rh) => {
-    result = rh - r;
+    result = Number(rh) - Number(r);
     resultHistory = '';
 }
 
