@@ -95,10 +95,6 @@ const calculator = () => {
             elResult.innerHTML = result;
         }
     });
-
-    elTabs.addEventListener('keypress', e => {
-        console.log(e);
-    })
 }
 
 
