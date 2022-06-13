@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS calculadora</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+    <div
+        class="flex w-full min-h-screen  justify-center bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+        <div class="h-full bg-indigo-900 p-5 text-white rounded mt-8" id="elCalc">
+
+            <!-- RESULTADO Y RENDER -->
+            <div class="pb-6 pt-2 px-4"  id="screen-result">
+                <div class="text-sm font-bold text-right h-6">
+                    <span id="elResultHistory"></span>
+                    <span id="elOperator"></span>
+                </div>
+
+                <div class="font-bold text-right h-10">
+                    <p class="text-4xl"  id="result">0</p>
+                </div>
+            </div>
+
+            <!-- TABLERO  -->
+            <div class="text-xl font-bold  flex gap-1 flex-col"  id="screen-tabs">
+                <!-- row -->
+
+                <div class="flex gap-1">
+                    <div
+                        class="hover:bg-yellow-800 cursor-pointer  bg-indigo-800 rounded">
+                        <span class="text-green-400  w-12 h-12 block flex items-center justify-center" id="reset" data-operator="reset">C</span>
+                    </div>
+                    <div
+                        class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                        <span class="text-lg text-blue-400 w-12 h-12 block flex items-center justify-center" id="delete" data-backspace="backspace">&lt;</span>
+                    </div>
+                    <div
+                        class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                        <span class="text-lg text-blue-400 w-12 h-12 block  flex items-center justify-center" id="divider" data-operator="divider">&#47;</span>
+                    </div>
+                    <div
+                        class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                        <span class="text-lg text-blue-400  w-12 h-12 block  flex items-center justify-center" id="multiply" data-operator="multiply">X</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-1 text-lg">
+                    <div
+                        class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                        <span class="text-gray-300 w-12 h-12 block flex items-center justify-center" id="seven" data-number="7">7</span>
+                    </div>
+                    <div
+                        class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                        <span class="text-gray-300 w-12 h-12 block flex items-center justify-center" id="eigth" data-number="8">8</span>
+                    </div>
+                    <div
+                        class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                        <span class="text-gray-300 w-12 h-12 block flex items-center justify-center" id="nine" data-number="9">9</span>
+                    </div>
+                    <div
+                        class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                        <span class="text-purple-500 w-12 h-12 blo flex items-center justify-center" id="minus"  data-operator="minus">-</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-1 text-lg">
+                    <div
+                        class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                        <span class="text-gray-300 w-12 h-12 block flex items-center justify-center" id="four" data-number="4">4</span>
+                    </div>
+                    <div
+                        class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                        <span class="text-gray-300 w-12 h-12 block flex items-center justify-center" id="five" data-number="5">5</span>
+                    </div>
+                    <div
+                        class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                        <span class="text-gray-300 w-12 h-12 block flex items-center justify-center" id="six" data-number="6">6</span>
+                    </div>
+                    <div
+                        class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                        <span class="text-purple-500 w-12 h-12 blo flex items-center justify-center" id="plus"  data-operator="plus">+</span>
+                    </div>
+                </div>
+
+
+
+                <div class="flex gap-1 text-lg">
+                    <div class="flex-1 gap-1 flex flex-col">
+
+                        <div class="flex gap-1">
+                            <div
+                                class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                                <span class="text-gray-300 w-12 h-12 block flex items-center justify-center" id="one" data-number="1">1</span>
+                            </div>
+                            <div
+                                class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                                <span class="text-gray-300 w-12 h-12 block flex items-center justify-center" id="two" data-number="2">2</span>
+                            </div>
+                            <div
+                                class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                                <span class="text-gray-300 w-12 h-12 block flex items-center justify-center" id="three" data-number="3">3</span>
+                            </div>
+                        </div>
+
+                        <div class="flex gap-1">
+                            <div
+                                class="hover:bg-yellow-800 cursor-pointer flex-1 bg-indigo-800 rounded flex justify-center items-center">
+                                <span class="text-gray-300 w-full h-12 block flex items-center justify-center" id="zero" data-number="0">0</span>
+                            </div>
+
+                            <div
+                                class="hover:bg-yellow-800 cursor-pointer w-12 h-12  bg-indigo-800 rounded flex justify-center items-center">
+                                <span class="text-gray-300 w-12 h-12 block flex items-center justify-center pb-2" id="float" data-number=".">.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="hover:bg-yellow-800 cursor-pointer bg-indigo-800 rounded">
+                        <span class="text-purple-500 w-12 h-24 block flex items-center justify-center" data-operator="equals" id="equals">=</span>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="./main.js">
+
+</script>
+
+<style>
+    * {
+        user-select: none;
+        transition: all .25s ease;
+    }
+</style>
+
+</html>
